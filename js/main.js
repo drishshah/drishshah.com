@@ -74,7 +74,7 @@
       ]
     },
     oasis: {
-      tag: "Design project", year: "",
+      tag: "Design project", year: "2024",
       title: "OASIS: Origami Aid Shelter",
       hl: "Sub 10 minute field setup",
       what: "A deployable origami shelter for compact transport and rapid setup in disaster response.",
@@ -87,7 +87,7 @@
       ]
     },
     engine: {
-      tag: "CAD project", year: "",
+      tag: "CAD project", year: "2025",
       title: "Little Blazer Engine",
       hl: "Interference free crank driven piston",
       what: "A single cylinder engine model for studying rotational to linear motion and motion sequencing.",
@@ -101,9 +101,9 @@
       tag: "FIRST Robotics", year: "2021 to 2025", url: "https://www.thebluealliance.com/team/9692",
       title: "FRC 9692 and FTC 20890",
       hl: "Engineering Inspiration and Inspire Awards",
-      what: "Competition robots for intake, indexing, scoring and autonomous navigation under match constraints.",
-      how: "Parametric CAD in SolidWorks and Onshape with tolerance analysis, 3D printing and precision machining, plus odometry based navigation in Python.",
-      results: "Autonomous path accuracy within 1 to 2 inches. Led 26 member FRC and 12 member FTC teams from concept to competition.",
+      what: "Ran two competition robotics programs end to end: the robots, plus the team, budget and outreach behind them. Robots handled intake, indexing, scoring and autonomous navigation under match constraints.",
+      how: "Led 26 member FRC and 12 member FTC teams from concept to competition, coordinating design, build and testing across subsystems. Parametric CAD in SolidWorks and Onshape with tolerance analysis, 3D printing and precision machining, plus odometry based navigation in Python.",
+      results: "Raised $52,000, taught 3,000 students and set up 27 robotics labs in underserved Indian schools. Autonomous path accuracy within 1 to 2 inches.",
       photos: [
         [P + "first/3.webp", "With the 2024 Rookie All-Star Award and Finalist trophies, Hali\u00e7 Regional"],
         [P + "first/2.webp", "FRC 9692 robot"],
