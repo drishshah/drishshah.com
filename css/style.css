@@ -243,3 +243,6 @@ footer .end { max-width: none; }
 .bio p a { text-decoration-color: var(--rule); }
 .bio p a:hover { text-decoration-color: currentColor; }
 .skill-n { display: flex; justify-content: space-between; text-transform: uppercase; }
+/* six skill cards: three per row, two on tablets, one on phones */
+.skill-grid .skill, .skill-grid .skill:nth-child(4), .skill-grid .skill:nth-child(5) { grid-column: span 2; }
+@media (max-width: 900px) { .skill-grid .skill, .skill-grid .skill:nth-child(4), .skill-grid .skill:nth-child(5) { grid-column: span 1; } }
