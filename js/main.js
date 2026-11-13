@@ -222,7 +222,7 @@
     current = id;
     lastFocus = document.activeElement;
     var tagEl = el("layer-tag"); tagEl.textContent = "";
-    var tagText = p.tag + (p.year ? " / " + p.year : "");
+    var tagText = p.tag + (p.year ? ", " + p.year : "");
     if (p.url) { var a = document.createElement("a"); a.href = p.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = tagText; tagEl.appendChild(a); }
     else tagEl.textContent = tagText;
     el("layer-title").textContent = p.title;
@@ -230,6 +230,8 @@
     el("layer-what").textContent = p.what;
     el("layer-how").textContent = p.how;
     el("layer-results").textContent = p.results;
+    var doc = el("layer-doc"); doc.textContent = ""; doc.hidden = !p.doc;
+    if (p.doc) { var d = document.createElement("a"); d.href = p.doc[0]; d.target = "_blank"; d.rel = "noopener"; d.textContent = p.doc[1]; doc.appendChild(d); }
     var thumbs = el("layer-thumbs");
     thumbs.innerHTML = "";
     p.photos.forEach(function (ph, i) {
@@ -324,6 +326,7 @@
     setTimeout(tick, 2200);
   }
 
+  window.openProject = function (id) { openProject(id); };
   function init() { startGripper(); initLayer(); initCopy(); startTyping(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
