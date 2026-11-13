@@ -249,9 +249,48 @@ footer .end { max-width: none; }
 
 /* equal sized units: every project card and skill card in a grid matches the tallest one */
 .grid { align-items: stretch; grid-auto-rows: 1fr; }
-.card > div:nth-last-child(2) { margin-top: auto; }
+.card > div:nth-last-child(3) { margin-top: auto; }
 .card h3 { min-height: 2.3em; }
 .skill-grid { align-items: stretch; grid-auto-rows: 1fr; }
 .meta { min-height: 2.9em; align-items: flex-start; }
 .meta span:last-child { white-space: nowrap; }
 @media (max-width: 600px) { .skill-grid { grid-auto-rows: auto; } .meta { min-height: 0; } }
+
+
+/* display face: Big Shoulders Display 900 (replaces Anton); hero name stacked with a thin orange drop shadow */
+:root { --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif; }
+h1, h2, .wwr h3, .skill h3, footer .closing, .cta .closing, .awards .n { font-weight: 900; }
+h1 { font-size: clamp(64px, 9.6vw, 120px); line-height: 0.9; letter-spacing: 0; text-shadow: 0.025em 0.025em 0 var(--orange); }
+
+/* hero viewer: rotating 3D line drawings of the projects */
+.viewer { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.viewer-stage { position: relative; width: 100%; aspect-ratio: 4 / 3; cursor: grab; touch-action: pan-y; outline: none; }
+.viewer-stage:active { cursor: grabbing; }
+.viewer-stage:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.viewer-canvas, .viewer-cover { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.viewer-cover { object-fit: contain; padding: 6%; mix-blend-mode: multiply; animation: sway 6s ease-in-out infinite; transform-origin: 50% 60%; }
+@keyframes sway { 0%, 100% { transform: perspective(900px) rotateY(-14deg); } 50% { transform: perspective(900px) rotateY(14deg); } }
+.viewer-stage.in { animation: fadein .45s ease; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.viewer-bar { display: grid; grid-template-columns: auto auto minmax(0, 1fr) auto; align-items: center; gap: 12px; font-size: 13px; border-top: 1px dashed var(--rule); padding-top: 10px; }
+.viewer-bar button { font: inherit; font-size: 15px; width: 34px; height: 30px; border: 1px solid var(--ink); background: var(--card); color: var(--ink); cursor: pointer; }
+.viewer-bar button:hover { background: var(--ink); color: var(--card); }
+.viewer-bar button:last-child { justify-self: end; }
+.viewer-count { color: var(--muted); font-variant-numeric: tabular-nums; }
+.viewer-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .viewer-cover, .viewer-stage.in { animation: none; } }
+
+/* line art viewer */
+.viewer-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 2%; user-select: none;
+  transform-origin: 50% 60%; animation: tilt 7s ease-in-out infinite; transition: opacity .18s ease; }
+.viewer-art.out { opacity: 0; }
+.viewer-art.ph { padding: 8%; mix-blend-mode: multiply; }
+.viewer-stage { cursor: pointer; }
+.viewer-stage:hover .viewer-art { animation-play-state: paused; }
+@keyframes tilt { 0%, 100% { transform: perspective(1100px) rotateY(-9deg) rotateX(2deg); } 50% { transform: perspective(1100px) rotateY(9deg) rotateX(-2deg); } }
+@media (prefers-reduced-motion: reduce) { .viewer-art { animation: none; } }
+
+/* tool tags on project cards */
+.card .tags { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 6px; font-family: var(--f-mono, "Geist Mono", monospace); font-size: 11.5px; line-height: 1.35; color: var(--ink); opacity: 0.72; }
+.card .tags li:not(:last-child)::after { content: "/"; margin-left: 6px; opacity: 0.5; }
+.doc { margin-top: 10px; }
